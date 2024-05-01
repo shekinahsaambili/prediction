@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title style="background-color: blue;">Prédiction de la quantité d'eau</title>
+</head>
+<body style="background-color: rgb(198, 198, 241);">
+    <header><h1 style=" margin-top: 50px; text-align: center;" >Prédiction de la quantité d'eau</h1></header>
+
+    <div><H3 style="text-align: center; padding-top: 20px;">cette application predit la quantité d'eau qu'une entreprise de distribution <br> d'eau peut vous donner en fonction de votre argent</H3></div>
+    
+    <div style="background-color: rgb(137, 137, 233); margin: 200px; text-align: center; margin-top: 100px;">
+    <h1 style="background-color: rgb(70, 70, 248);">Entrez le montant à partir de 2$ :</h1>
+    <form action="/predict" method="post">
+        <label for="prix" style="padding-bottom: 15px;">montant :</label>
+        <input type="text" id="prix" name="prix" required style="padding-bottom: 30px;">
+        <br>
+        {% if quantite_eau_predite %}
+    
+    <p>La prédiction est : {{ quantite_eau_predite }} metres cube d'eau pour votre montant</p>
+    {% endif %}
+        <div style="padding: 10px; ;">
+        <input type="submit" value="Prédire la quantité d'eau" style="background-color: rgb(70, 70, 248); 
+         
+        border: none; 
+        border-radius: 5px; 
+        padding: 10px 20px; 
+        margin-left: 50px;
+        text-transform: uppercase;">
+        </div>
+    </form>
+</div>
+    {% if quantite_eau_predite %}
+    <h1>Résultat de la prédiction</h1>
+    <p>La prédiction est : {{ quantite_eau_predite }}</p>
+    {% endif %}
+</body>
+</html>
